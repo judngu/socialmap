@@ -49,5 +49,10 @@ group :development, :test do
   gem 'spring'
 
   gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'valid_attribute'
+  gem 'shoulda'
 end
 
