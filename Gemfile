@@ -57,3 +57,6 @@ group :development, :test do
   gem 'launchy'
 end
 
+group :test do
+  gem 'coveralls', require: false
+end
