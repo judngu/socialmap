@@ -35,4 +35,11 @@ describe "user create an event" do
 
     expect(page).to have_content("Name can't be blank")
   end
+
+  it "not show page if user is not signed in to app" do
+
+    visit new_event_path
+
+    expect(page).to have_content("You need to sign in or sign up before continuing.")
+  end
 end
