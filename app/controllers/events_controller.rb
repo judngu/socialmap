@@ -21,11 +21,11 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find_by(id: params[:id])
+    @event = current_user.events.find(params[:id])
   end
 
   def update
-    @event = Event.find_by(id: params[:id])
+    @event = current_user.events.find(params[:id])
     @user = @event.user
     if @event.update(event_params)
       redirect_to event_path(@event), notice: "Event sucessfully updated."
