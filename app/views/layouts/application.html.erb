@@ -12,7 +12,9 @@
   </head>
 
   <body>
-
+    <% flash.each do |msg| %>
+        <%= msg %>
+      <% end %>
     <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>
