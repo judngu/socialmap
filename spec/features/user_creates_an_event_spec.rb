@@ -17,7 +17,7 @@ describe "user create an event" do
     fill_in "Description", with: "This event weeds out people who are underpreforming"
     click_on "Create Event"
 
-    expect(page).to have_content("Event Sucessfully Created")
+    expect(page).to have_content("Event sucessfully created.")
     expect(page).to have_content("123 Space St.")
     expect(page).to have_content("Space")
     expect(page).to have_content("Rocketville")

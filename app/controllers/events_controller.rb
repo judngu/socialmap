@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+  
   def show
     @event = Event.find_by(id: params[:id])
   end 
@@ -12,10 +13,24 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user = current_user
     if @event.save
-      flash[:notice] = "Event Sucessfully Created"
+      flash[:notice] = "Event sucessfully created."
       redirect_to event_path(@event)
     else
       render :new
+    end
+  end
+
+  def edit
+    @event = Event.find_by(id: params[:id])
+  end
+
+  def update
+    @event = Event.find_by(id: params[:id])
+    @user = @event.user
+    if @event.update(event_params)
+      redirect_to event_path(@event), notice: "Event sucessfully updated."
+    else
+      render :edit
     end
   end
 
