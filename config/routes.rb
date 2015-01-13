@@ -4,9 +4,7 @@ Rails.application.routes.draw do
  
   root 'homes#index'
   resources :events
-  resources :homes do
-    resources :attendees
-  end
+  resources :homes
   resources :attendees
 
 
