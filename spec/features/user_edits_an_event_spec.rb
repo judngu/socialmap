@@ -28,7 +28,4 @@ describe "user edits an event" do
 
     expect(page).not_to have_content("Edit Event")
   end
-
-
-
 end

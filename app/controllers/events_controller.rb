@@ -1,6 +1,9 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   
+  def index
+  end
+
   def show
     @event = Event.find_by(id: params[:id])
   end 
@@ -32,6 +35,15 @@ class EventsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @event = current_user.events.find(params[:id])
+      if @event.destroy
+        redirect_to events_path, notice: "Event sucessfully deleted."
+      else
+        redirect_to event_path, notice: "Event not deleted"
+      end
   end
 
   private
