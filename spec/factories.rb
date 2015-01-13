@@ -17,4 +17,9 @@ FactoryGirl.define do
     description "This event weeds out people who are underpreforming"
     user
   end
+
+  factory :attendee do
+    user
+    event
+  end
 end

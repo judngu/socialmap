@@ -1,5 +1,5 @@
-= form_for @attendee do |f|
+= form_tag("attendees", method: 'post') do 
   %p
-    = f.label :passphrase 
-    = f.text_field :passphrase
-    = f.submit
+    = label_tag("Passphrase:")
+    = text_field_tag(:passphrase)
+    = submit_tag("Create Attendee")
