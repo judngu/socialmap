@@ -13,7 +13,7 @@ FactoryGirl.define do
     city "Rocketville"
     state "MA"
     question "Who do you think is best at this meeting?"
-    passphrase "This is my secret password"
+    sequence(:passphrase) { |n| "#{n} pass" }
     description "This event weeds out people who are underpreforming"
     user
   end
