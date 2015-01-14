@@ -13,10 +13,9 @@ describe "user deletes an event" do
     visit root_path
     fill_in "passphrase", with: event.passphrase
     click_on "Create Attendee"
-    save_and_open_page
-    select attendee1.user.name, from: "pick"
-
-    expect(page).to have_content("test")
+    select attendee1.user.name, from: "pick[picked_user]"
+    click_on "Create Pick"
+    expect(Pick.count).to eq 1
 
   end
 end

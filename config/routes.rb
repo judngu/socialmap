@@ -9,6 +9,4 @@ Rails.application.routes.draw do
   resources :picks
   resources :homes
   resources :attendees
-
-
 end

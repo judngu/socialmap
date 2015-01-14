@@ -4,7 +4,7 @@ FactoryGirl.define do
     sequence(:email) { |n| "email#{n}@gmail.com"}
     password "password"
     password_confirmation "password"
-    name "Judy"
+    sequence(:name) { |n| "Judy#{n}"}
   end
   
   factory :event do
