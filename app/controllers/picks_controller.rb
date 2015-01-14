@@ -1,4 +1,8 @@
 class PicksController < ApplicationController
+  
+  def index
+  end
+
   def create
     @pick = Pick.new(pick_params)
     @pick.user_id = current_user.id
