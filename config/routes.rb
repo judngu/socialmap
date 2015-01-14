@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
  
   root 'homes#index'
-  resources :events
+  resources :events do
+    resources :picks
+  end
+  resources :picks
   resources :homes
   resources :attendees
 

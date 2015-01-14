@@ -11,8 +11,8 @@
   %p= link_to("Edit Event", edit_event_path(@event))
   %p= link_to("Delete Event", event_path(@event), :method => :delete, :confirm => "Are you sure you would like to delete this event?")
 
-= form_for @pick do |f|
+= form_for [@events, @pick] do |f|
   %p
-    f.label :user
-    f.collection_select(:user_id, @event.users, :id, :name)
-    f.submit
+    =f.label :pick
+    =f.collection_select(:user_id, @event.users, :id, :name)
+    =f.submit

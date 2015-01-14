@@ -13,7 +13,7 @@ describe "user deletes an event" do
     visit root_path
     fill_in "passphrase", with: event.passphrase
     click_on "Create Attendee"
-    binding.pry
+    save_and_open_page
     select attendee1.user.name, from: "pick"
 
     expect(page).to have_content("test")

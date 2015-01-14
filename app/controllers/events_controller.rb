@@ -7,7 +7,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
-    #@users = @event.users
+    @pick = Pick.new
   end 
 
   def new
