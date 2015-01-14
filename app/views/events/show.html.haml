@@ -20,7 +20,7 @@
     =f.submit
 
 = form_for [@event, @pick] do |f|
-  %p
+  %p#connection.value2
     =f.label :picked_user
     =f.collection_select(:picked_user, @event.users, :id, :name)
     =f.hidden_field :value
@@ -28,7 +28,7 @@
     =f.submit
 
 = form_for [@event, @pick] do |f|
-  %p
+  %p#connection.value3
     =f.label :picked_user
     =f.collection_select(:picked_user, @event.users, :id, :name)
     =f.hidden_field :value
