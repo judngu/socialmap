@@ -1,4 +1,9 @@
 class PicksController < ApplicationController
+  
+  def index
+    @picks = Pick.where(event_id: params["event_id"])
+  end
+
   def create
     @pick = Pick.new(pick_params)
     @pick.user_id = current_user.id
