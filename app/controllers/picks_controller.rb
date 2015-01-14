@@ -1,6 +1,7 @@
 class PicksController < ApplicationController
   
   def index
+    @picks = Pick.where(event_id: params["event_id"])
   end
 
   def create

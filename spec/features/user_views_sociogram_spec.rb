@@ -15,9 +15,8 @@ describe "views a sociogram" do
     sign_in(user)
     
     visit event_path(event)
-    save_and_open_page
     click_on "View Map"
-
+    save_and_open_page
     expect(page).to have_content(pick1.picked_user)
   end
 end
