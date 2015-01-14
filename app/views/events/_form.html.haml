@@ -1,6 +1,6 @@
-= if @event.errors.any?
+- if @event.errors.any?
   %ul
-  = @event.errors.full_messages.each do |msg|
+  - @event.errors.full_messages.each do |msg|
     %li
       = msg
 
