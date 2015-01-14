@@ -1,6 +1,7 @@
 require "rails_helper"
 
 describe "user joins an event as an attendee" do 
+  
   it "should have a link to the index to write in the passphrase to join event" do
     user = FactoryGirl.create(:user)
     event = FactoryGirl.create(:event)

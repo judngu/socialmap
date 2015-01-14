@@ -6,4 +6,13 @@ class Event < ActiveRecord::Base
   validates :name, presence: true
   validates :user_id, presence:true
   validates :question, presence: true
+
+  def first_pick=(value)
+  end
+
+  def second_pick=(value)
+  end
+
+  def third_pick=(value)
+  end
 end
