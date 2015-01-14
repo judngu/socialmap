@@ -7,9 +7,10 @@
 %p= @event.question
 %p= @event.description
 
-=if current_user == @event.user
+-if current_user == @event.user
   %p= link_to("Edit Event", edit_event_path(@event))
   %p= link_to("Delete Event", event_path(@event), :method => :delete, :confirm => "Are you sure you would like to delete this event?")
+  %p= link_to("View Map", event_picks_path(@event))
 
 = form_for [@event, @pick] do |f|
   %p#connection.value1
@@ -20,7 +21,7 @@
     =f.submit
 
 = form_for [@event, @pick] do |f|
-  %p
+  %p#connection.value2
     =f.label :picked_user
     =f.collection_select(:picked_user, @event.users, :id, :name)
     =f.hidden_field :value
@@ -28,7 +29,7 @@
     =f.submit
 
 = form_for [@event, @pick] do |f|
-  %p
+  %p#connection.value3
     =f.label :picked_user
     =f.collection_select(:picked_user, @event.users, :id, :name)
     =f.hidden_field :value

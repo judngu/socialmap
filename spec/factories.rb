@@ -23,4 +23,11 @@ FactoryGirl.define do
     user
     event
   end
+
+  factory :pick do
+    user
+    event
+    value "3"
+    sequence(:picked_user) { |n| "#{n}".to_i }
+  end
 end

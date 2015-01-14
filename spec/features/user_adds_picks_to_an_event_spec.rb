@@ -14,7 +14,6 @@ describe "user deletes an event" do
 
     fill_in "passphrase", with: event.passphrase
     click_on "Create Attendee"
-    save_and_open_page
     within(:css, "#connection.value1") do
       select attendee1.user.name, from: "pick[picked_user]"
       click_on "Create Pick"
