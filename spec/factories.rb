@@ -26,8 +26,8 @@ FactoryGirl.define do
 
   factory :pick do
     user
-    event
     value "3"
-    sequence(:picked_user) { |n| "#{n}".to_i }
+    event
+    association :picked_user, factory: :user
   end
 end

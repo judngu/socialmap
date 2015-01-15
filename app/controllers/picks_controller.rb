@@ -1,7 +1,9 @@
 class PicksController < ApplicationController
   
   def index
-    @picks = Pick.where(event_id: params["event_id"])
+    @event  = Event.find(params[:event_id])
+    # @picks = @event.picks
+    @picks = Pick.count_picks(@event)
   end
 
   def create
@@ -18,7 +20,7 @@ class PicksController < ApplicationController
   private
 
   def pick_params
-    params.require(:pick).permit(:user_id, :event_id, :value, :picked_user)
+    params.require(:pick).permit(:user_id, :event_id, :value, :picked_user_id)
   end
 
 end
