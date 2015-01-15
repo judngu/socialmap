@@ -1,7 +1,9 @@
 class PicksController < ApplicationController
   
   def index
-    @picks = Pick.where(event_id: params["event_id"])
+    @event  = Event.find(params[:event_id])
+    @picks = @event.picks
+    Pick.count_picks(@event)
   end
 
   def create

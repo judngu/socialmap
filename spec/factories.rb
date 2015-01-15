@@ -26,8 +26,12 @@ FactoryGirl.define do
 
   factory :pick do
     user
-    event
     value "3"
-    sequence(:picked_user) { |n| "#{n}".to_i }
+    after(:build) do |pick|
+      event = FactoryGirl.create(:event)
+      picked = FactoryGirl.create(:attendee, event_id: event.id)
+      pick.picked_user = picked.user
+      pick.event = event
+    end
   end
 end
