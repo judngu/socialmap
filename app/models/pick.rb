@@ -6,14 +6,14 @@ class Pick < ActiveRecord::Base
   def self.count_picks(event)
     list = []
     event.picks.each do |p|
-    	list << { p.picked_user.name => p.value }
+      list << { p.picked_user.name => p.value }
     end
     
     results = Hash.new(0)
     list.each do |hash|
-    	hash.each do |key, value|
-    		results[key] += value
-    	end
+      hash.each do |key, value|
+        results[key] += value
+      end
     end
     results
   end
