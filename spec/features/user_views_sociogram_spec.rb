@@ -1,27 +1,11 @@
 require "rails_helper"
 
 describe "views a sociogram" do
-  
-#   it "should give a list of ranks" do
 
-#     pick = FactoryGirl.create(:pick)
-#     pick1 = FactoryGirl.create(:pick)
-#     pick2 = FactoryGirl.create(:pick)
-#     user = FactoryGirl.create(:user)
-#     attendee = FactoryGirl.create(user_id: user.id, event_id: pick.event.id)
-
-#     sign_in(user)
-    
-#     visit event_path(event)
-#     click_on "View Map"
-#     expect(page).to have_content(pick1.picked_user)
-#   end
-# end
-
-   it "should give a list of ranks" do
+  it "should give a list of ranks" do
     user = FactoryGirl.create(:user)
     event = FactoryGirl.create(:event, user: user)
-    
+
     user1 = FactoryGirl.create(:user)
     user2 = FactoryGirl.create(:user)
     user3 = FactoryGirl.create(:user)
