@@ -14,24 +14,24 @@
 
 = form_for [@event, @pick] do |f|
   %p#connection.value1
-    =f.label :picked_user
-    =f.collection_select(:picked_user, @event.users, :id, :name)
+    =f.label :picked_user_id
+    =f.collection_select(:picked_user_id, @event.users, :id, :name)
     =f.hidden_field :value
-    =f.hidden_field :value, value: 1
+    =f.hidden_field :value, value: 3
     =f.submit
 
 = form_for [@event, @pick] do |f|
   %p#connection.value2
-    =f.label :picked_user
-    =f.collection_select(:picked_user, @event.users, :id, :name)
+    =f.label :picked_user_id
+    =f.collection_select(:picked_user_id, @event.users, :id, :name)
     =f.hidden_field :value
     =f.hidden_field :value, value: 2
     =f.submit
 
 = form_for [@event, @pick] do |f|
   %p#connection.value3
-    =f.label :picked_user
-    =f.collection_select(:picked_user, @event.users, :id, :name)
+    =f.label :picked_user_id
+    =f.collection_select(:picked_user_id, @event.users, :id, :name)
     =f.hidden_field :value
     =f.hidden_field :value, value: 1
     =f.submit

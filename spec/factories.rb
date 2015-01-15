@@ -27,11 +27,7 @@ FactoryGirl.define do
   factory :pick do
     user
     value "3"
-    after(:build) do |pick|
-      event = FactoryGirl.create(:event)
-      picked = FactoryGirl.create(:attendee, event_id: event.id)
-      pick.picked_user = picked.user
-      pick.event = event
-    end
+    event
+    association :picked_user, factory: :user
   end
 end

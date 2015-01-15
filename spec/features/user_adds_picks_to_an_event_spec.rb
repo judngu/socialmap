@@ -15,7 +15,7 @@ describe "user deletes an event" do
     fill_in "passphrase", with: event.passphrase
     click_on "Create Attendee"
     within(:css, "#connection.value1") do
-      select attendee1.user.name, from: "pick[picked_user]"
+      select attendee1.user.name, from: "pick[picked_user_id]"
       click_on "Create Pick"
     end
     expect(Pick.count).to eq 1
