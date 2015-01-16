@@ -18,6 +18,4 @@ class Pick < ActiveRecord::Base
     results
   end
 
-  def self.font_wieght(picks)
-  end
 end
