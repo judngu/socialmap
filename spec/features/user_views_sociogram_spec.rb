@@ -3,7 +3,6 @@ require "rails_helper"
 describe "views a sociogram" do
 
   it "should give a list of ranks" do
-    pending
     user = FactoryGirl.create(:user)
     event = FactoryGirl.create(:event, user: user)
 
@@ -65,6 +64,7 @@ describe "views a sociogram" do
 
     visit event_path(event)
     click_on "View Map"
-    expect(page).to have_content(attendee2.user.name)
+    save_and_open_page
+    expect(page).to have_content("Social Path")
   end
 end
