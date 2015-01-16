@@ -65,7 +65,6 @@ describe "views a sociogram" do
 
     visit event_path(event)
     click_on "View Map"
-    save_and_open_page
     expect(page).to have_content(attendee2.user.name)
   end
 end
