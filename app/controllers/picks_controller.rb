@@ -4,6 +4,7 @@ class PicksController < ApplicationController
     @event  = Event.find(params[:event_id])
     # @picks = @event.picks
     @picks = Pick.count_picks(@event)
+    binding.pry
   end
 
   def create

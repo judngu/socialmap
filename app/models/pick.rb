@@ -18,4 +18,14 @@ class Pick < ActiveRecord::Base
     results
   end
 
+  def nodes(event)
+    nodes = []
+    event.users.each do |user|
+      user_entry = Hash.new
+      user_entry["name"] = user.name
+      user_entry["group"] = rand(50)
+      nodes << user_entry
+    end
+    nodes
+  end
 end
