@@ -53,5 +53,4 @@ class Pick < ActiveRecord::Base
     links
   end
 
-
 end
