@@ -1,7 +1,24 @@
-- @picks.each do |key, value|
-  %p
-    ="#{key} - #{value}"
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
+}
+.node text {
+  font: 9px helvetica;
+}
+</style>
+<body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+
 var width = 960,
     height = 500;
 
@@ -51,4 +68,5 @@ d3.json("data.json", function(error, graph) {
 });
 
 </script>
- 
+
+

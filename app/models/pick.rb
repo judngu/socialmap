@@ -16,5 +16,14 @@ class Pick < ActiveRecord::Base
       end
     end
     results
+    binding.pry
+  end
+
+  def font_values(picks)
+    h = 1
+    font_values = picks.inject({}) { |h, (k, v)| h[k] = "h#{h}"; h}
+  end
+
+  def self.font_size(picks)
   end
 end
