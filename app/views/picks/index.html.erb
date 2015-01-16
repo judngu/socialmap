@@ -15,33 +15,8 @@
 <body>
 <script type="application/json" id="mis">
     {
-        "nodes": [{
-            "name": "Judy",
-                "group": 1
-        }, {
-            "name": "Tim",
-                "group": 20
-        }, {
-            "name": "Alex",
-                "group": 75
-        }],
-            "links": [{
-            "source": 1,
-                "target": 0,
-                "value": 1
-        }, {
-            "source": 2,
-                "target": 0,
-                "value": 1
-        }, {
-            "source": 0,
-                "target": 0,
-                "value": 1
-        }, {
-            "source": 1,
-                "target": 2,
-                "value": 1
-        }]
+        "nodes": <%= @nodes1.html_safe %>,
+            "links": <%= @links.html_safe %>
     }
 </script>
 <script src="http://d3js.org/d3.v3.min.js"></script>

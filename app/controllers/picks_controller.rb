@@ -2,9 +2,10 @@ class PicksController < ApplicationController
   
   def index
     @event  = Event.find(params[:event_id])
-    # @picks = @event.picks
-    @picks = Pick.count_picks(@event)
-    binding.pry
+    @nodes = Pick.nodes(@event)
+    @nodes1 = ActiveSupport::JSON.encode(Pick.nodes(@event))
+    @node_index = Pick.node_index(@nodes)
+    @links = ActiveSupport::JSON.encode(Pick.links(@event, @node_index))
   end
 
   def create

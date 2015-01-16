@@ -18,7 +18,7 @@ class Pick < ActiveRecord::Base
     results
   end
 
-  def nodes(event)
+  def self.nodes(event)
     nodes = []
     event.users.each do |user|
       user_entry = Hash.new
@@ -28,4 +28,30 @@ class Pick < ActiveRecord::Base
     end
     nodes
   end
+
+  def self.node_index(nodes)
+    n = 0
+    node_index = Hash.new
+    nodes.each do |user|
+      name = user["name"]
+      node_index["#{name}"] = n
+      n += 1
+    end
+    node_index
+  end
+
+  def self.links(event, node_index)
+    links = []
+    picks = event.picks
+    picks.each do |pick|
+      link = Hash.new
+      link["source"] = node_index[pick.user.name]
+      link["target"] = node_index[pick.picked_user.name]
+      link["value"] = 1
+      links << link
+    end
+    links
+  end
+
+
 end
