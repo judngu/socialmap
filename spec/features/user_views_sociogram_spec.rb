@@ -3,6 +3,7 @@ require "rails_helper"
 describe "views a sociogram" do
 
   it "should give a list of ranks" do
+    pending
     user = FactoryGirl.create(:user)
     event = FactoryGirl.create(:event, user: user)
 
