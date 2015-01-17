@@ -3,10 +3,15 @@
     %section.module.parallax.parallax-1
       .row
         .large-2.columns
-          = form_for Attendee.new do |f|
-            = label_tag :passphrase
-            = text_field_tag :passphrase
-            = f.submit "Create Attendee"
+          %p#joinform
+            %strong Have a code to join an event?
+            = form_for Attendee.new do |f|
+              = label_tag "Please enter your code:"
+              = text_field_tag :passphrase
+              = f.submit "Join"
+        .large-7.columns
+          %strong Create an event:
+          
     %section.module.content
       .container
         %h2 Lorem Ipsum Dolor
