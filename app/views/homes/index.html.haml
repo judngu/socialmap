@@ -1,17 +1,19 @@
 %section.module.parallax.parallax-1
   .row
-    .large-2.columns
-      %p.joinform
-        %strong Have a code to join an event?
-        = form_for Attendee.new do |f|
-          = label_tag "Please enter your code:"
-          = text_field_tag :passphrase
-          = f.submit "Join"
-    .large-2.columns
-      %strong Create an event:
-      = link_to "Create Event", new_event_path
-    .large-8.columns
-      Social Path
+    .large-4.medium-6.columns
+      #joinform
+        %p
+          %strong Have a code to join an event?
+          = form_for Attendee.new do |f|
+            = label_tag "Please enter your code:"
+            = text_field_tag :passphrase
+            = f.submit "Join"
+    .large-8.medium-6.columns
+      #infobox
+        %h4
+          Social Path is a web app that generates a simple sociogram showing the relationships between a group of people based on a response to one customizable question.
+        %strong Create an event:
+        = link_to "Create Event", new_event_path
 
 %section.module.content
   .container
