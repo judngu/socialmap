@@ -6,6 +6,7 @@ class CreateEvents < ActiveRecord::Migration
     	t.string :address
     	t.string :city
     	t.string :state
+        t.string :zipcode
     	t.integer :user_id, null: false
     	t.string :question, null: false
     	t.string :passphrase, null: false

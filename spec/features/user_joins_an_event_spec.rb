@@ -9,7 +9,7 @@ describe "user joins an event as an attendee" do
 
     visit root_path
     fill_in "passphrase", with: event.passphrase
-    click_on "Create Attendee"
+    click_on "Join"
 
     expect(page).to have_content("#{event.name}")
     expect(Attendee.count).to eq 1
@@ -20,7 +20,7 @@ describe "user joins an event as an attendee" do
 
     visit root_path
     fill_in "passphrase", with: event.passphrase
-    click_on "Create Attendee"
+    click_on "Join"
 
     expect(page).to have_content "You need to sign in or sign up before continuing."
     expect(Attendee.count).to eq 0
@@ -33,7 +33,7 @@ describe "user joins an event as an attendee" do
 
     visit root_path
     fill_in "passphrase", with: "test"
-    click_on "Create Attendee"
+    click_on "Join"
 
     expect(page).to have_content "Event does not exist"
     expect(Attendee.count).to eq 0
