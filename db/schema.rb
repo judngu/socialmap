@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20141222213445) do
     t.string   "address"
     t.string   "city"
     t.string   "state"
+    t.string   "zipcode"
     t.integer  "user_id",     null: false
     t.string   "question",    null: false
     t.string   "passphrase",  null: false
@@ -67,7 +68,7 @@ ActiveRecord::Schema.define(version: 20141222213445) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
+    t.string   "name",                                null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
