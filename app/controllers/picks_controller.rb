@@ -4,17 +4,12 @@ class PicksController < ApplicationController
   def index
     @event = Event.find(params[:event_id])
     @data = @event.sociograph
-
-    respond_to do |format|
-      format.html { render :index }
-      format.json { render json: @data }
-    end
   end
 
   def create
     @pick = Pick.new(pick_params)
     @pick.user_id = current_user.id
-    @pick.event_id = params[:event_id] 
+    @pick.event_id = params[:event_id]
     if @pick.save
       flash[:notice] = "User connection added."
       redirect_to event_path(params[:event_id])
