@@ -15,7 +15,9 @@ describe "user create an event" do
     fill_in "Question", with: "Who do you think is best at this meeting?"
     fill_in "Passphrase", with: "This is my secret password"
     fill_in "Description", with: "This event weeds out people who are underpreforming"
-    click_on "Create Event"
+    within(:css, ".eventform") do
+      click_on "Create Event"
+    end
 
     expect(page).to have_content("Event sucessfully created.")
     expect(page).to have_content("123 Space St.")
@@ -31,7 +33,9 @@ describe "user create an event" do
     sign_in(user)
 
     visit new_event_path
-    click_on "Create Event"
+    within(:css, ".eventform") do
+      click_on "Create Event"
+    end
 
     expect(page).to have_content("Name can't be blank")
   end
