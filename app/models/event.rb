@@ -13,7 +13,7 @@ class Event < ActiveRecord::Base
   	users.all_except(user)
   end
 
-  def sociograph
+  def sociogram
     { nodes: grouped_users, links: user_links }
   end
 

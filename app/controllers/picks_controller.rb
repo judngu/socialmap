@@ -3,7 +3,7 @@ class PicksController < ApplicationController
 
   def index
     @event = Event.find(params[:event_id])
-    @data = @event.sociograph
+    @data = @event.sociogram
   end
 
   def create

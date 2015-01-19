@@ -12,11 +12,11 @@ class AttendeesController < ApplicationController
 
       if attendee.save
         flash[:notice] = "Successfully registered."
+        redirect_to event_path(event)
       else
         flash[:alert] = "Could not register."
+        redirect_to root_path
       end
-
-      redirect_to event_path(event)
     end
   end
 end
