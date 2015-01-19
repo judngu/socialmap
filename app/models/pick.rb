@@ -4,52 +4,45 @@ class Pick < ActiveRecord::Base
   belongs_to :picked_user, class_name: "User"
 
   def self.node_weights(event)
-    list = []
-    event.picks.each do |p|
-      list << { p.picked_user.name => p.value }
+    user_scores = Hash.new(0)
+
+    event.picks.each do |pick|
+      user_scores[pick.picked_user.name] += pick.value
     end
 
-    results = Hash.new(0)
-    list.each do |hash|
-      hash.each do |key, value|
-        results[key] += value
-      end
-    end
-    results
+    user_scores
   end
 
   def self.nodes(event)
-    nodes = []
-    event.users.each do |user|
-      user_entry = Hash.new
-      user_entry["name"] = user.name
-      user_entry["group"] = rand(50)
-      nodes << user_entry
+    event.users.map do |user|
+      { "name" => user.name, "group" => random_color_group }
     end
-    nodes
   end
 
   def self.node_index(nodes)
-    n = 0
     node_index = Hash.new
-    nodes.each do |user|
+
+    nodes.each_with_index do |user, n|
       name = user["name"]
       node_index["#{name}"] = n
-      n += 1
     end
+
     node_index
   end
 
   def self.links(event, node_index)
-    links = []
-    picks = event.picks
-    picks.each do |pick|
-      link = Hash.new
-      link["source"] = node_index[pick.user.name]
-      link["target"] = node_index[pick.picked_user.name]
-      link["value"] = 1
-      links << link
+    event.picks.map do |pick|
+      {
+        "source" => node_index[pick.user.name],
+        "target" => node_index[pick.picked_user.name],
+        "value" => 1
+      }
     end
-    links
+  end
+
+  private
+
+  def self.random_color_group
+    rand(50)
   end
 end
