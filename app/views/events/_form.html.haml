@@ -29,7 +29,7 @@
       = f.text_field :question
     %p
       = f.label :passphrase 
-      = f.text_field :passphrase
+      = f.text_field :passphrase, value: "#{@rand_string}"
     %p
       = f.label :description 
       = f.text_field :description

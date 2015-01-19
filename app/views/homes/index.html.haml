@@ -67,7 +67,7 @@
                   = f.text_field :question
                 %p
                   = f.label :passphrase 
-                  = f.text_field :passphrase
+                  = f.text_field :passphrase, value: ('a'..'z').to_a.shuffle[0,5].join.upcase
                 %p
                   = f.label :description 
                   = f.text_field :description

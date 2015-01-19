@@ -16,7 +16,6 @@ class PicksController < ApplicationController
     if @pick.save
       flash[:notice] = "User connection added."
       redirect_to event_path(params[:event_id])
-    else
     end
   end
 

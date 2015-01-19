@@ -13,6 +13,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @rand_string = ('a'..'z').to_a.shuffle[0,5].join.upcase
   end
 
   def create
