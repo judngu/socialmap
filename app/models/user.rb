@@ -40,7 +40,6 @@ class User < ActiveRecord::Base
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end
-  
   def self.all_except(user)
     where.not(id: user)
   end
