@@ -1,14 +1,15 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  # GET /users/:id.:format
   def show
-    # authorize! :read, @user
+    @user = User.find(params[:id])
+    @events = Event.where(user: @user)
+    @attendee = Attendee.where(user: @user)
   end
 
   # GET /users/:id/edit
   def edit
-    # authorize! :update, @user
+
   end
 
   # PATCH/PUT /users/:id.:format

@@ -2,6 +2,7 @@ class PicksController < ApplicationController
   
   def index
     @event  = Event.find(params[:event_id])
+    @node_weights = Pick.node_weights(@event)
     @nodes = Pick.nodes(@event)
     @nodes1 = ActiveSupport::JSON.encode(Pick.nodes(@event))
     @node_index = Pick.node_index(@nodes)

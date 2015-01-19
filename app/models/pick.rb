@@ -3,7 +3,7 @@ class Pick < ActiveRecord::Base
   belongs_to :event
   belongs_to :picked_user, class_name: "User"
 
-  def self.count_picks(event)
+  def self.node_weights(event)
     list = []
     event.picks.each do |p|
       list << { p.picked_user.name => p.value }

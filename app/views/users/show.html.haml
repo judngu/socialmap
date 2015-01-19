@@ -1,0 +1,41 @@
+.row
+	%h1=@user.name
+.row
+	%p
+		%table
+			%tr
+				%td="Events created by: #{@user.name}"
+			%tr
+				%td Date
+				%td Event Name
+				%td Location
+				%td Passphrase
+			-@events.each do |event|
+				%tr
+					%td
+						="#{event.created_at}"
+					%td
+						=link_to "#{event.name}", event_path(event)
+					%td
+						="#{event.location}"
+					%td
+						="#{event.passphrase}"
+		%table
+			%tr
+				%td="Events Joined"
+			%tr
+				%td Date
+				%td Event Name
+				%td Location
+				%td Passphrase
+			
+			-@attendee.each do |attendee|
+				%tr
+					%td
+						="#{attendee.event.created_at}"
+					%td
+						=link_to "#{attendee.event.name}", event_path(attendee)
+					%td
+						="#{attendee.event.location}"
+					%td
+						="#{attendee.event.passphrase}"

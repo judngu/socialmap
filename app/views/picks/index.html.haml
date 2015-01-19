@@ -1,9 +1,14 @@
-%script#data{:type => "application/json"}
-  {
-  "nodes": #{@nodes1.html_safe},
-  "links": #{@links.html_safe}
-  }
-:javascript
-  var width = 600,
-    	height = 600;
-- stylesheet_link_tag("d3.v3.min")
+.row.left
+  = link_to("Back", event_path(@event), class: "button")
+
+.row 
+  .medium-6.column
+    %script#data{:type => "application/json"}
+      {
+      "nodes": #{@nodes1.html_safe},
+      "links": #{@links.html_safe}
+      }
+    :javascript
+      var width = 750,
+        	height = 750;
+    - stylesheet_link_tag("d3.v3.min")
