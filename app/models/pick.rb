@@ -8,7 +8,7 @@ class Pick < ActiveRecord::Base
     event.picks.each do |p|
       list << { p.picked_user.name => p.value }
     end
-    
+
     results = Hash.new(0)
     list.each do |hash|
       hash.each do |key, value|
@@ -52,5 +52,4 @@ class Pick < ActiveRecord::Base
     end
     links
   end
-
 end

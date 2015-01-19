@@ -1,16 +1,16 @@
 .row
-	%h1=@user.name
+	%h1= current_user.name
 .row
 	%p
 		%table
 			%tr
-				%td="Events created by: #{@user.name}"
+				%td="Events created by: #{current_user.name}"
 			%tr
 				%td Date
 				%td Event Name
 				%td Location
 				%td Passphrase
-			-@events.each do |event|
+			- current_user.events.each do |event|
 				%tr
 					%td
 						="#{event.created_at}"
@@ -28,8 +28,8 @@
 				%td Event Name
 				%td Location
 				%td Passphrase
-			
-			-@attendee.each do |attendee|
+
+			- current_user.attendees.each do |attendee|
 				%tr
 					%td
 						="#{attendee.event.created_at}"
