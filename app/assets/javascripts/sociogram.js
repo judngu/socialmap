@@ -1,11 +1,11 @@
-var width = 700,
-  height = 700;
+var width = 600,
+  height = 600;
 
 var color = d3.scale.category20();
 
 var force = d3.layout.force()
   .charge(-120)
-  .linkDistance(300)
+  .linkDistance(250)
   .size([width, height]);
 
 var svg = d3.select("body").append("svg")
@@ -31,7 +31,7 @@ svg.append("defs").selectAll("marker")
 .enter().append("marker")
   .attr("id", function(d) { return d; })
   .attr("viewBox", "0 -5 10 10")
-  .attr("refX", 25)
+  .attr("refX", 20)
   .attr("refY", 0)
   .attr("markerWidth", 15)
   .attr("markerHeight", 15)
@@ -39,7 +39,7 @@ svg.append("defs").selectAll("marker")
 .append("path")
   .attr("d", "M0,-5L10,0L0,5 L10,0 L0, -5")
   .style("stroke", "#999")
-  .style("opacity", "0.6");
+  .style("opacity", "0.4");
 
 
 var node = svg.selectAll(".node")
@@ -55,7 +55,7 @@ node.append("circle")
 })
 
 node.append("text")
-  .attr("dx", 20)
+  .attr("dx", 10)
   .attr("dy", ".35em")
   .text(function(d) { return d.name });
 
