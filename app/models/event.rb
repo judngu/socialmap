@@ -8,4 +8,8 @@ class Event < ActiveRecord::Base
   validates :user_id, presence:true
   validates :question, presence: true
   validates :passphrase, presence: true, uniqueness: true
+
+  def already_voted?(user, event, value)
+    votes = Pick.where(user: user)
+  end
 end
