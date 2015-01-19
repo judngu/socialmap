@@ -3,18 +3,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(current_user)
-    @events = Event.where(user: @user)
-    @attendee = Attendee.where(user: @user)
+    @events = Event.where(user: @user).sort
+    @attendee = Attendee.where(user: @user).sort
   end
 
-  # GET /users/:id/edit
-  def edit
-
-  end
-
-  # PATCH/PUT /users/:id.:format
   def update
-    # authorize! :update, @user
     respond_to do |format|
       if @user.update(user_params)
         sign_in(@user == current_user ? @user : current_user, :bypass => true)
@@ -27,10 +20,9 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET/PATCH /users/:id/finish_signup
   def finish_signup
-    # authorize! :update, @user 
-    if request.patch? && params[:user] #&& params[:user][:email]
+
+    if request.patch? && params[:user]
       if @user.update(user_params)
         @user.skip_reconfirmation!
         sign_in(@user, :bypass => true)
@@ -41,9 +33,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/:id.:format
   def destroy
-    # authorize! :delete, @user
     @user.destroy
     respond_to do |format|
       format.html { redirect_to root_url }

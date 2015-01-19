@@ -1,5 +1,5 @@
 class PicksController < ApplicationController
-  
+  before_action :authenticate_user!
   def index
     @event  = Event.find(params[:event_id])
     @node_weights = Pick.node_weights(@event)

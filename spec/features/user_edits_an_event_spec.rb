@@ -12,6 +12,7 @@ describe "user edits an event" do
     click_on "Edit Event"
 
     fill_in "Name", with: "Edit"
+    fill_in "Passphrase", with: event.passphrase
     click_on "Update Event"
 
     expect(page).to have_content("Event sucessfully updated.")

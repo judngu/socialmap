@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :picks
   end
   resources :picks
-  resources :homes
+  resources :homes, only: [:index]
   resources :attendees
   resources :users
 end
