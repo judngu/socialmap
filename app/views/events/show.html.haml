@@ -1,6 +1,15 @@
 .row
+  .large-12.column
+    %h1=@event.name
+.row
   .large-6.column
-    %h1= @event.name
+    -if current_user == @event.user
+      %p
+        = link_to("Edit Event", edit_event_path(@event), class: "button tiny")
+
+        = link_to("Delete Event", event_path(@event), :method => :delete, :confirm => "Are you sure you would like to delete this event?", class: "button tiny")
+.row
+  .large-12.column.panel
     %h3.subheader= @event.location
     %p
       = @event.address 
@@ -8,14 +17,9 @@
       = "#{@event.city}, #{@event.state} #{@event.zipcode}"
       %p
         = @event.description
-      -if current_user == @event.user
-        %p
-          = link_to("Edit Event", edit_event_path(@event))
-          %br
-          = link_to("Delete Event", event_path(@event), :method => :delete, :confirm => "Are you sure you would like to delete this event?")
-        %p
-          = link_to("View Map", event_picks_path(@event), class: "button tiny")
-        %h4= @event.question
+    = link_to("View Sociogram", event_picks_path(@event), class: "button")
+.row
+  %h4.panel= @event.question
 .row
   .large-4.medium-4.column
     = form_for [@event, @pick] do |f|

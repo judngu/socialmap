@@ -2,7 +2,7 @@ require "rails_helper"
 
 describe "views a sociogram" do
 
-  it "should give a list of ranks" do
+  it "should give a map of connections" do
     user = FactoryGirl.create(:user)
     event = FactoryGirl.create(:event, user: user)
 
@@ -63,8 +63,7 @@ describe "views a sociogram" do
     sign_in(user)
 
     visit event_path(event)
-    click_on "View Map"
-    save_and_open_page
+    click_on "View Sociogram"
     expect(page).to have_content("Social Path")
   end
 end
