@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require d3.v3.min
 //= require turbolinks
 //= require_tree .
 
