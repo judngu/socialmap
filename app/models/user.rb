@@ -13,7 +13,6 @@ class User < ActiveRecord::Base
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
-
     identity = Identity.find_for_oauth(auth)
     user = signed_in_resource ? signed_in_resource : identity.user
     if user.nil?
@@ -37,7 +36,12 @@ class User < ActiveRecord::Base
     end
     user
   end
+
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
+  end
+  
+  def self.all_except(user)
+    where.not(id: user)
   end
 end

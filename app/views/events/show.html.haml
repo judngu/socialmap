@@ -1,37 +1,43 @@
-%h1= @event.name
-  
-%p= @event.location
-%p= @event.address 
-%p= @event.city
-%p= @event.state
-%p= @event.question
-%p= @event.description
-
--if current_user == @event.user
-  %p= link_to("Edit Event", edit_event_path(@event))
-  %p= link_to("Delete Event", event_path(@event), :method => :delete, :confirm => "Are you sure you would like to delete this event?")
-  %p= link_to("View Map", event_picks_path(@event))
-
-= form_for [@event, @pick] do |f|
-  %p#connection.value1
-    =f.label :picked_user_id
-    =f.collection_select(:picked_user_id, @event.users, :id, :name)
-    =f.hidden_field :value
-    =f.hidden_field :value, value: 3
-    =f.submit
-
-= form_for [@event, @pick] do |f|
-  %p#connection.value2
-    =f.label :picked_user_id
-    =f.collection_select(:picked_user_id, @event.users, :id, :name)
-    =f.hidden_field :value
-    =f.hidden_field :value, value: 2
-    =f.submit
-
-= form_for [@event, @pick] do |f|
-  %p#connection.value3
-    =f.label :picked_user_id
-    =f.collection_select(:picked_user_id, @event.users, :id, :name)
-    =f.hidden_field :value
-    =f.hidden_field :value, value: 1
-    =f.submit
+.row
+  .large-6.column
+    %h1= @event.name
+    %h3.subheader= @event.location
+    %p
+      = @event.address 
+      %br 
+      = "#{@event.city}, #{@event.state} #{@event.zipcode}"
+      %p
+        = @event.description
+      -if current_user == @event.user
+        %p
+          = link_to("Edit Event", edit_event_path(@event))
+          %br
+          = link_to("Delete Event", event_path(@event), :method => :delete, :confirm => "Are you sure you would like to delete this event?")
+        %p
+          = link_to("View Map", event_picks_path(@event), class: "button tiny")
+        %h4= @event.question
+.row
+  .large-4.medium-4.column
+    = form_for [@event, @pick] do |f|
+      %p#connection.value1
+        =f.label "First Choice"
+        =f.collection_select(:picked_user_id, @event_attendees, :id, :name)
+        =f.hidden_field :value
+        =f.hidden_field :value, value: 3
+        =f.submit "Submit", class: "button tiny"
+  .large-4.medium-4.column
+    = form_for [@event, @pick] do |f|
+      %p#connection.value2
+        =f.label "Second Choice"
+        =f.collection_select(:picked_user_id, @event_attendees, :id, :name)
+        =f.hidden_field :value
+        =f.hidden_field :value, value: 2
+        =f.submit "Submit", class: "button tiny"
+  .large-4.medium-4.column
+    = form_for [@event, @pick] do |f|
+      %p#connection.value3
+        =f.label "Third Choice"
+        =f.collection_select(:picked_user_id, @event_attendees, :id, :name)
+        =f.hidden_field :value
+        =f.hidden_field :value, value: 1
+        =f.submit "Submit", class: "button tiny"

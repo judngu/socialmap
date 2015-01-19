@@ -22,7 +22,7 @@ describe "views a sociogram" do
     visit event_path(event)
     within(:css, "#connection.value2") do
       select attendee2.user.name, from: "pick[picked_user_id]"
-      click_on "Create Pick"
+      click_on "Submit"
     end
     sign_out(user1)
 
@@ -30,7 +30,7 @@ describe "views a sociogram" do
     visit event_path(event)
     within(:css, "#connection.value1") do
       select attendee1.user.name, from: "pick[picked_user_id]"
-      click_on "Create Pick"
+      click_on "Submit"
     end
     sign_out(user2)
 
@@ -38,7 +38,7 @@ describe "views a sociogram" do
     visit event_path(event)
     within(:css, "#connection.value3") do
       select attendee2.user.name, from: "pick[picked_user_id]"
-      click_on "Create Pick"
+      click_on "Submit"
     end
     sign_out(user3)
 
@@ -46,7 +46,7 @@ describe "views a sociogram" do
     visit event_path(event)
     within(:css, "#connection.value1") do
       select attendee2.user.name, from: "pick[picked_user_id]"
-      click_on "Create Pick"
+      click_on "Submit"
     end
     sign_out(user4)
 
@@ -54,7 +54,7 @@ describe "views a sociogram" do
     visit event_path(event)
     within(:css, "#connection.value1") do
       select attendee3.user.name, from: "pick[picked_user_id]"
-      click_on "Create Pick"
+      click_on "Submit"
     end
     sign_out(user5)
 
