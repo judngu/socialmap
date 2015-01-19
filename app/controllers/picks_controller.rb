@@ -1,18 +1,15 @@
 class PicksController < ApplicationController
   before_action :authenticate_user!
+
   def index
-    @event  = Event.find(params[:event_id])
-    @node_weights = Pick.node_weights(@event)
-    @nodes = Pick.nodes(@event)
-    @nodes1 = ActiveSupport::JSON.encode(Pick.nodes(@event))
-    @node_index = Pick.node_index(@nodes)
-    @links = ActiveSupport::JSON.encode(Pick.links(@event, @node_index))
+    @event = Event.find(params[:event_id])
+    @data = @event.sociogram
   end
 
   def create
     @pick = Pick.new(pick_params)
     @pick.user_id = current_user.id
-    @pick.event_id = params[:event_id] 
+    @pick.event_id = params[:event_id]
     if @pick.save
       flash[:notice] = "User connection added."
       redirect_to event_path(params[:event_id])
