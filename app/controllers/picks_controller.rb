@@ -4,9 +4,16 @@ class PicksController < ApplicationController
     @event  = Event.find(params[:event_id])
     @node_weights = Pick.node_weights(@event)
     @nodes = Pick.nodes(@event)
-    @nodes1 = ActiveSupport::JSON.encode(Pick.nodes(@event))
+    
     @node_index = Pick.node_index(@nodes)
-    @links = ActiveSupport::JSON.encode(Pick.links(@event, @node_index))
+    @links = Pick.links(@event, @node_index)
+
+    @data = { nodes: @nodes, links: @links }
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @data }
+    end
   end
 
   def create
