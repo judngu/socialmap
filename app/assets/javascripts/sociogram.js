@@ -1,6 +1,3 @@
-var width = 600,
-  height = 600;
-
 var color = d3.scale.category20();
 
 var force = d3.layout.force()
