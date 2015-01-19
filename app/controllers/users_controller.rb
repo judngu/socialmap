@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(current_user)
     @events = Event.where(user: @user)
     @attendee = Attendee.where(user: @user)
   end
