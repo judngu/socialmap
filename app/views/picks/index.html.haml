@@ -1,0 +1,9 @@
+%script#data{:type => "application/json"}
+  {
+  "nodes": #{@nodes1.html_safe},
+  "links": #{@links.html_safe}
+  }
+:javascript
+  var width = 600,
+    	height = 600;
+- stylesheet_link_tag("d3.v3.min")
