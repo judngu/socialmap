@@ -5,7 +5,7 @@ class EventsController < ApplicationController
     @event = Event.find_by(id: params[:id])
     @pick = Pick.new
     @event_attendees = @event.other_attendees(current_user)
-  end 
+  end
 
   def new
     @event = Event.new
@@ -43,7 +43,7 @@ class EventsController < ApplicationController
   end
 
   private
-  
+
   def event_params
     params.require(:event).permit(:name, :location, :address,:city, :state, :zipcode, :question, :passphrase, :description)
   end
