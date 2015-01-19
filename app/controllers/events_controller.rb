@@ -8,6 +8,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find_by(id: params[:id])
     @pick = Pick.new
+    @event_attendees = @event.users.all_except(current_user)
   end 
 
   def new
@@ -50,6 +51,6 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:name, :location, :address,:city, :state, :question, :passphrase, :description)
+    params.require(:event).permit(:name, :location, :address,:city, :state, :zipcode, :question, :passphrase, :description)
   end
 end

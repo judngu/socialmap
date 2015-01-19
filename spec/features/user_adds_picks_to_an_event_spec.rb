@@ -16,7 +16,7 @@ describe "user makes a selection" do
     click_on "Join"
     within(:css, "#connection.value1") do
       select attendee1.user.name, from: "pick[picked_user_id]"
-      click_on "Create Pick"
+      click_on "Submit"
     end
     expect(Pick.count).to eq 1
 
