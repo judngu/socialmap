@@ -1,14 +1,9 @@
 class PicksController < ApplicationController
   before_action :authenticate_user!
-  def index
-    @event  = Event.find(params[:event_id])
-    @node_weights = Pick.node_weights(@event)
-    @nodes = Pick.nodes(@event)
-    
-    @node_index = Pick.node_index(@nodes)
-    @links = Pick.links(@event, @node_index)
 
-    @data = { nodes: @nodes, links: @links }
+  def index
+    @event = Event.find(params[:event_id])
+    @data = @event.sociograph
 
     respond_to do |format|
       format.html { render :index }

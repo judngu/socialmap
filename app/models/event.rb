@@ -13,6 +13,15 @@ class Event < ActiveRecord::Base
   	users.all_except(user)
   end
 
+  def sociograph
+    nodes = Pick.nodes(self)
+
+    node_index = Pick.node_index(nodes)
+    links = Pick.links(self, node_index)
+
+    { nodes: nodes, links: links }
+  end
+
   def self.random_passphrase
     ('a'..'z').to_a.shuffle[0, 10].join.upcase
   end
