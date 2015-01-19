@@ -13,7 +13,4 @@ class AttendeesController < ApplicationController
       redirect_to event_path(@event)
     end
   end
-
-  private
-
 end
