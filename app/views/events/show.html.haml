@@ -12,12 +12,13 @@
   .large-12.column.panel
     %h3.subheader= @event.location
     %p
-      = @event.address 
-      %br 
+      = @event.address
+      %br
       = "#{@event.city}, #{@event.state} #{@event.zipcode}"
       %p
         = @event.description
     = link_to("View Sociogram", event_picks_path(@event), class: "button")
+    = link_to("View Ranks", event_picks_path(@event), class: "button")
 .row
   %h4.panel= @event.question
 .row
