@@ -1,8 +1,12 @@
 .row.left
-  = link_to("Back", event_path(@event), class: "button")
+  .larger-12.medium-12.column
+    = link_to("Back", event_path(@event), class: "button")
+
 .row
   .large-8.medium-8.column
     #picks-graph
     %script#data{:type => "application/json"}
       = @data.to_json.html_safe
-
+.row
+  %p
+    *Double-click on a person to see their social connections.
