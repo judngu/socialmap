@@ -34,21 +34,21 @@
     .large-12.columns
       %h4 Want to see a live demo of Social Path at work?
       .row
-        .large-4.medium-4.columns
+        .large-4.medium-4.columns.text-justify
           %h5 Step One:
           %p
             1. Click on the "Sign into Demo Account" and then click on "Sign-in".
-        .large-4.medium-4.columns
+        .large-4.medium-4.columns.text-justify
           %h5 Step Two:
           %p
             2. Click on "View Event Dashboard".
-        .large-4.medium-4.columns
+        .large-4.medium-4.columns.text-justify
           %h5 Step Three:
           %p
             2. Click on "View Sociogram" from the Event Dashboard, or click below to jump straight to the sociogram.
   .row
     .large-4.medium-4.columns
-      %a.radius.button.small.span{"data-reveal-id" => "firstModal", :href => "/events/new"} Sign into Demo Account
+      %a.radius.button.small.span.expand{"data-reveal-id" => "firstModal", :href => "/events/new"} Sign into Demo Account
       #firstModal.reveal-modal{"data-reveal" => ""}
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .field
@@ -67,10 +67,10 @@
             = f.submit "Sign-in", class: "button small"
     .large-4.medium-4.columns
 
-      =link_to "View Event Dashboard", "events/1", class: "button small span"
+      =link_to "View Event Dashboard", "events/1", class: "button small expand"
     .large-4.medium-4.columns
 
-      =link_to "View Sociogram", "events/1/picks", class: "button small span"
+      =link_to "View Sociogram", "events/1/picks", class: "button small expand"
 
 %footer.row
   .large-12.columns
