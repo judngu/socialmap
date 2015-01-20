@@ -14,17 +14,19 @@
           Social Path is a web app that generates a simple sociogram showing the relationships between a group of people based on a response to one customizable question.
 .row.margin-50
   .large-4.medium-4.columns
-    %img{:src => "http://placehold.it/400x300&text=[img]"}/
-    %h4 Social Path gives you a platform for you to pose a question...
-    %p Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.
+    =image_tag("fullmap.png", class: "th")
+    %h4 Social Path gives you a platform for you to pose a question.
+    %p Start out by posing a question to your group.  When you create and event, you'll have a special passphrase to give to your group members to sign up.  Each member signs in, and selects their top 3 responses from a list of joined members.
+
   .large-4.medium-4.columns
-    %img{:src => "http://placehold.it/400x300&text=[img]"}/
-    %h4 ...get respones from your group in an efficent organized manner...
-    %p Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.
+    =image_tag("map.png", class: "th")
+    %h4 See the people that influence your group.
+    %p Social Path generates a sociogram from the responses of the group. The sociogram gives you a visual representation of who the main influences are in the group. Get insight on where dysfunctions, bonds, and conflicts might occur.
+
   .large-4.medium-4.columns
-    %img{:src => "http://placehold.it/400x300&text=[img]"}/
-    %h4 ...and illuminates important interpersonal connections by generating a sociogram.
-    %p Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.
+    =image_tag("highlight.png", class: "th")
+    %h4 Social Path illuminates important interpersonal connections by generating a sociogram.
+    %p Dig deeper with Social Path.  Social path allows you to highlight the connections for each person in your group.  You can view their selection, as well as which people chose this person.
 .row
   .large-12.columns
     .panel
@@ -45,33 +47,33 @@
 
               = form_for @event do |f|
                 %p
-                  = f.label :name 
+                  = f.label :name
                   = f.text_field :name
                 %p
-                  = f.label :location 
+                  = f.label :location
                   = f.text_field :location
                 %p
-                  = f.label :address 
+                  = f.label :address
                   = f.text_field :address
                 %p
-                  = f.label :city 
+                  = f.label :city
                   = f.text_field :city
                 %p
-                  = f.label :state 
+                  = f.label :state
                   = f.text_field :state
                 %p
-                  = f.label :zipcode 
+                  = f.label :zipcode
                   = f.text_field :zipcode
                 %p
-                  = f.label :question 
+                  = f.label :question
                   = f.text_field :question
                 %p
-                  = f.label :passphrase 
+                  = f.label :passphrase
                   = f.text_field :passphrase, value: ('a'..'z').to_a.shuffle[0,5].join.upcase
                 %p
-                  = f.label :description 
+                  = f.label :description
                   = f.text_field :description
-                %p 
+                %p
                   = f.submit
 %footer.row
   .large-12.columns
