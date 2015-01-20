@@ -1,9 +1,9 @@
 .row.left
-  .larger-12.medium-12.column
+  .larger-12.medium-12.columns
     = link_to("Back", event_path(@event), class: "button")
 
 .row
-  .large-8.medium-8.column
+  .large-8.medium-8.columns
     #picks-graph
     %script#data{:type => "application/json"}
       = @data.to_json.html_safe

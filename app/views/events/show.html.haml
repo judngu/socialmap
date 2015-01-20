@@ -1,15 +1,15 @@
 .row
-  .large-12.column
+  .large-12.columns
     %h1=@event.name
 .row
-  .large-6.column
+  .large-6.columns
     -if current_user == @event.user
       %p
         = link_to("Edit Event", edit_event_path(@event), class: "button tiny")
 
         = link_to("Delete Event", event_path(@event), :method => :delete, :confirm => "Are you sure you would like to delete this event?", class: "button tiny")
 .row
-  .large-12.column.panel
+  .large-12.columns.panel
     %h3.subheader= @event.location
     %p
       = @event.address
@@ -23,7 +23,7 @@
 .row
   %h4.panel= @event.question
 .row
-  .large-4.medium-4.column
+  .large-4.medium-4.columns
     = form_for [@event, @pick] do |f|
       %p#connection.value1
         =f.label "First Choice"
@@ -31,7 +31,7 @@
         =f.hidden_field :value
         =f.hidden_field :value, value: 3
         =f.submit "Submit", class: "button tiny"
-  .large-4.medium-4.column
+  .large-4.medium-4.columns
     = form_for [@event, @pick] do |f|
       %p#connection.value2
         =f.label "Second Choice"
@@ -39,7 +39,7 @@
         =f.hidden_field :value
         =f.hidden_field :value, value: 2
         =f.submit "Submit", class: "button tiny"
-  .large-4.medium-4.column
+  .large-4.medium-4.columns
     = form_for [@event, @pick] do |f|
       %p#connection.value3
         =f.label "Third Choice"
