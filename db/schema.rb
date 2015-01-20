@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141222213445) do
+ActiveRecord::Schema.define(version: 20150120153215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20141222213445) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "events", ["passphrase"], name: "index_events_on_passphrase", using: :btree
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
