@@ -19,6 +19,8 @@
         = @event.description
     = link_to("View Sociogram", event_picks_path(@event), class: "button")
     = link_to("View Ranks", event_picks_path(@event), class: "button")
+    = link_to("JSON data", "#{@event.id}/picks.json", class: "button")
+
 .row
   %h4.panel= @event.question
 .row
