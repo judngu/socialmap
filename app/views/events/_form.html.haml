@@ -7,33 +7,33 @@
 
   = form_for @event do |f|
     %p
-      = f.label :name 
+      = f.label :name
       = f.text_field :name
     %p
-      = f.label :location 
+      = f.label :location
       = f.text_field :location
     %p
-      = f.label :address 
+      = f.label :address
       = f.text_field :address
     %p
-      = f.label :city 
+      = f.label :city
       = f.text_field :city
     %p
-      = f.label :state 
+      = f.label :state
       = f.text_field :state
     %p
-      = f.label :zipcode 
+      = f.label :zipcode
       = f.text_field :zipcode
     %p
-      = f.label :question 
+      = f.label :question
       = f.text_field :question
     %p
-      = f.label :passphrase 
+      = f.label :passphrase
       = f.text_field :passphrase, value: Event.random_passphrase
     %p
-      = f.label :description 
+      = f.label :description
       = f.text_field :description
-    %p 
-      = f.submit
+    %p
+      = f.submit  class: "button"
 
 

@@ -1,6 +1,6 @@
 %section.module.parallax.parallax-1
-  .row.data-equalizer
-    .large-4.medium-4.columns.data-equalizer-watch
+  .row
+    .large-4.medium-4.columns
       .panel.margin-50
         %p
           %strong Already have a code?
@@ -8,10 +8,12 @@
             = label_tag "Please enter your code to join event:"
             = text_field_tag :passphrase
             = f.submit "Join", class: 'button tiny'
-    .large-8.medium-8.columns.data-equalizer-watch
+    .large-8.medium-8.columns
       #infobox.panel
-        %h4
-          Social Path is a web app that generates a simple sociogram showing the relationships between a group of people based on a response to one customizable question.
+        %h3
+          %strong
+            Social Path
+          is a web app that generates a simple sociogram showing the relationships between a group of people based on a response to one customizable question.
 .row.margin-50
   .large-4.medium-4.columns
     =image_tag("fullmap.png", class: "th")
@@ -27,54 +29,49 @@
     =image_tag("highlight.png", class: "th")
     %h4 Social Path illuminates important interpersonal connections by generating a sociogram.
     %p Dig deeper with Social Path.  Social path allows you to highlight the connections for each person in your group.  You can view their selection, as well as which people chose this person.
-.row
-  .large-12.columns
-    .panel
-      %h4 Ready to try Social Path?
+.panel
+  .row
+    .large-12.columns
+      %h4 Want to see a live demo of Social Path at work?
       .row
-        .large-9.medium-9.columns
-          %p Create and Event with Social Path today!
-        .large-3.medium-3.columns
-          %a.radius.button{"data-reveal-id" => "firstModal", :href => "/events/new"} Create Event
-          #firstModal.reveal-modal{"data-reveal" => ""}
-            %h2 New Event Form:
-            %p
-              - if @event.errors.any?
-                %ul
-                - @event.errors.full_messages.each do |msg|
-                  %li
-                    = msg
+        .large-4.medium-4.columns
+          %h5 Step One:
+          %p
+            1. Click on the "Sign into Demo Account" and then click on "Sign-in".
+        .large-4.medium-4.columns
+          %h5 Step Two:
+          %p
+            2. Click on "View Event Dashboard".
+        .large-4.medium-4.columns
+          %h5 Step Three:
+          %p
+            2. Click on "View Sociogram" from the Event Dashboard, or click below to jump straight to the sociogram.
+  .row
+    .large-4.medium-4.columns
+      %a.radius.button.small.span{"data-reveal-id" => "firstModal", :href => "/events/new"} Sign into Demo Account
+      #firstModal.reveal-modal{"data-reveal" => ""}
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .field
+            = f.label :email
+            %br/
+            = f.email_field :email, value:"judy@judy.com", autofocus: true
+          .field
+            = f.label :password
+            %br/
+            = f.password_field :password, value:"password"
+          - if devise_mapping.rememberable?
+            .field
+              = f.check_box :remember_me
+              = f.label :remember_me
+          .actions
+            = f.submit "Sign-in", class: "button small"
+    .large-4.medium-4.columns
 
-              = form_for @event do |f|
-                %p
-                  = f.label :name
-                  = f.text_field :name
-                %p
-                  = f.label :location
-                  = f.text_field :location
-                %p
-                  = f.label :address
-                  = f.text_field :address
-                %p
-                  = f.label :city
-                  = f.text_field :city
-                %p
-                  = f.label :state
-                  = f.text_field :state
-                %p
-                  = f.label :zipcode
-                  = f.text_field :zipcode
-                %p
-                  = f.label :question
-                  = f.text_field :question
-                %p
-                  = f.label :passphrase
-                  = f.text_field :passphrase, value: ('a'..'z').to_a.shuffle[0,5].join.upcase
-                %p
-                  = f.label :description
-                  = f.text_field :description
-                %p
-                  = f.submit
+      =link_to "View Event Dashboard", "events/1", class: "button small span"
+    .large-4.medium-4.columns
+
+      =link_to "View Sociogram", "events/1/picks", class: "button small span"
+
 %footer.row
   .large-12.columns
     %hr/
