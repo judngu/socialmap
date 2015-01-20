@@ -34,7 +34,7 @@
 					%td
 						="#{attendee.event.created_at}"
 					%td
-						=link_to "#{attendee.event.name}", event_path(attendee)
+						=link_to "#{attendee.event.name}", event_path(attendee.event)
 					%td
 						="#{attendee.event.location}"
 					%td
