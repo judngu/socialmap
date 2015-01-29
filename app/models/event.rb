@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   belongs_to :user
-  has_many :attendees
-  has_many :picks
+  has_many :attendees, dependent: :destroy
+  has_many :picks, dependent: :destroy
   has_many :users, through: :attendees
 
   validates :name, presence: true
