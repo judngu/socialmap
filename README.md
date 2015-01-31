@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/judngu/socialmap.png?label=ready&title=Ready)](https://waffle.io/judngu/socialmap)
 [![Build Status](https://travis-ci.org/judngu/socialmap.svg?branch=master)](https://travis-ci.org/judngu/socialmap)
 [![Code Climate](https://codeclimate.com/github/judngu/socialmap/badges/gpa.svg)](https://codeclimate.com/github/judngu/socialmap)
 [![Coverage Status](https://img.shields.io/coveralls/judngu/socialmap.svg)](https://coveralls.io/r/judngu/socialmap)
