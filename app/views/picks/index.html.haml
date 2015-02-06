@@ -1,12 +1,27 @@
 .row.left
   .larger-12.medium-12.columns
     = link_to("Back", event_path(@event), class: "button")
-
 .row
-  .large-8.medium-8.columns
+  .large-2.medium-2.small-2.columns
+    %table
+      %thead
+        %tr
+          %td
+            Name
+          %td
+            Votes
+      %tbody
+        - @event.attendees.sort_by(&:pick_count).reverse.each do |attendee|
+          %tr
+            %td
+              = attendee.user.name
+            %td
+              = attendee.pick_count
+
+  .large-8.medium-8.small-8.columns
     #picks-graph
     %script#data{:type => "application/json"}
       = @data.to_json.html_safe
-.row
-  %p
-    *Double-click on a person to see their social connections.
+    %p
+      *Double-click on a person's name to see their social connections.
+  .large-2.medium-2.small-2.columns
